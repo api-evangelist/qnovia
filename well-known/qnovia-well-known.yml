@@ -1,0 +1,106 @@
+generated: '2026-08-26'
+method: probed
+source: https://qnovia.com/.well-known/
+note: >-
+  NO HIT. qnovia.com is a client-rendered Vite/React single-page application served behind a
+  catch-all route: every path that is not a real static asset or one of the site's own /api/*
+  backend routes returns HTTP 200 with the identical 2,477-byte HTML app shell, including a random
+  control path that cannot exist. None of these 200s is a document, so no WellKnown, SecurityTxt,
+  APICatalog or AgentCard pointer is emitted for this provider. Recorded as an absence, per the
+  soft-404 rule in pipeline-enrich.md.
+hit_count: 0
+soft_404_control:
+  path: /.well-known/definitely-not-a-real-path-9f3a2b
+  status: 200
+  content_type: text/html; charset=utf-8
+  bytes: 2477
+  verdict: catch-all — identical body to every other probed path
+hosts:
+- host: https://qnovia.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html; charset=utf-8
+    bytes: 2477
+    file: null
+    note: SPA shell, not a document
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html; charset=utf-8
+    bytes: 2477
+    file: null
+    note: SPA shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html; charset=utf-8
+    bytes: 2477
+    file: null
+    note: SPA shell, not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html; charset=utf-8
+    bytes: 2477
+    file: null
+    note: SPA shell, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html; charset=utf-8
+    bytes: 2477
+    file: null
+    note: SPA shell, not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html; charset=utf-8
+    bytes: 2477
+    file: null
+    note: SPA shell, not an A2A agent card — no a2a/ artifact written
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html; charset=utf-8
+    bytes: 2477
+    file: null
+    note: SPA shell, not an A2A agent card — no a2a/ artifact written
+contract_discovery:
+  note: >-
+    STEP 0b contract discovery run against the only host this company controls. All REST spec paths
+    return the same SPA shell. There is no GraphQL surface, no MCP endpoint, and no A2A card. The
+    site's JavaScript bundle (/assets/index-uVc0Dqd0.js) declares the complete client route table
+    and the complete set of backend calls it makes; both were read, and neither contains a
+    developer, API, or documentation route.
+  probes:
+  - url: https://qnovia.com/openapi.json
+    status: 200
+    result: SPA shell (2477 bytes, text/html)
+  - url: https://qnovia.com/api/openapi.json
+    status: 200
+    result: SPA shell (2477 bytes, text/html)
+  - url: https://qnovia.com/api/docs
+    status: 200
+    result: SPA shell (2477 bytes, text/html)
+  - url: https://qnovia.com/llms.txt
+    status: 200
+    result: SPA shell (2477 bytes, text/html)
+  - url: https://qnovia.com/api/investors/me
+    status: 401
+    result: '{"error":"Not authenticated"} — real JSON from the site''s own private backend'
+  private_backend:
+    note: >-
+      The corporate site does call a first-party HTTP backend, but it is the website's own form and
+      session plumbing, not a product API: no documentation, no versioning, no published contract,
+      no sign-up for third parties. It is recorded here as an observation only. NO OpenAPI was
+      authored for it and no apis[] entry was created, because inferring a contract from an
+      undocumented internal endpoint list would manufacture an API the company does not publish.
+    endpoints_referenced_in_bundle:
+    - POST /api/contact
+    - POST /api/newsletter
+    - POST /api/media-inquiry
+    - POST /api/applications
+    - POST /api/investors/login
+    - POST /api/investors/logout
+    - GET /api/investors/me
+    - POST /api/investors/request-access
+    - POST /api/investors/forgot-password
+    - POST /api/investors/set-password
+    - GET /api/investors/admin/users
+    - POST /api/investors/admin/invite
+    source: https://qnovia.com/assets/index-uVc0Dqd0.js

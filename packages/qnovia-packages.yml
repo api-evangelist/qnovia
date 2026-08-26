@@ -1,0 +1,28 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org, and the Apple App Store search API, plus the complete route table and
+  outbound link set extracted from https://qnovia.com/assets/index-uVc0Dqd0.js
+package_count: 0
+packages: []
+note: >-
+  No first-party client library, SDK, or CLI is published by Qnovia in any public registry. Exact-name
+  lookups for "qnovia", "respirx" and "neblit" return 404 on npm and PyPI; npm full-text search returns
+  0 results for both "qnovia" and "neblit". There is no GitHub organization at github.com/qnovia (404)
+  and a GitHub repository search for "qnovia" returns 0 repositories. The Neblit AI companion mobile
+  app the company describes on its technology pages is not yet listed in the Apple App Store, which is
+  consistent with the RespiRx device being in Phase 1 clinical development rather than on market.
+  Recorded as a verified zero, not an unchecked gap.
+registries_checked:
+- registry: npm
+  queries: [qnovia, respirx, neblit]
+  result: 404 on exact names; 0 results on full-text search
+- registry: pypi
+  queries: [qnovia, respirx, neblit]
+  result: 404 on all
+- registry: github
+  queries: [orgs/qnovia, 'search/repositories?q=qnovia']
+  result: org 404; 0 repositories
+- registry: apple-app-store
+  queries: [qnovia, neblit]
+  result: no app published by Qnovia

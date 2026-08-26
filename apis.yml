@@ -1,17 +1,40 @@
 aid: qnovia
 name: Qnovia
-description: 'Qnovia is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Qnovia, Inc. is a clinical-stage pharmaceutical and drug-device company developing inhaled
+  therapeutics built on its proprietary RespiRx aseptically pre-filled, portable vibrating-mesh
+  nebulizer platform. Its lead asset, the RespiRx Nicotine Inhaler (QN-01), is a prescription
+  smoking-cessation therapy that cleared FDA IND review and has dosed patients in a U.S. Phase 1
+  study; a cognitive behavioral therapy (CBT) program is advancing toward a second IND. The device
+  is Bluetooth Low Energy connected and pairs with Neblit AI, a cloud-connected companion app and
+  machine-learning platform that tracks dose events and delivers behavioral interventions, which the
+  company positions as a digital therapeutic layer over the pharmacotherapy. Founded in 2018 as
+  Respira Technologies and rebranded to Qnovia in 2022, the company is led by founder and CEO Mario
+  Danek, operates R&D and manufacturing in Newport Beach/Irvine, California and an R&D facility in
+  Richmond, Virginia, and has raised roughly $50 million to date. Qnovia publishes no public API,
+  developer portal, SDK, or machine-readable contract; its corporate site is a client-rendered
+  single-page application whose only HTTP API is a private backend serving its own contact, careers
+  and investor-portal forms.
 url: https://raw.githubusercontent.com/api-evangelist/qnovia/refs/heads/main/apis.yml
+image: https://qnovia.com/favicon.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Pharmaceuticals
+- Medical Devices
+- Drug Delivery
+- Digital Health
+- Digital Therapeutics
+- Respiratory
+- Smoking Cessation
+- Connected Devices
+- Clinical Trials
+- Artificial Intelligence
+- Health
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +43,62 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://qnovia.com/
+- type: About
+  url: https://qnovia.com/about/story
+- type: Product
+  url: https://qnovia.com/product
+- type: Technology
+  url: https://qnovia.com/technology
+- type: Pipeline
+  url: https://qnovia.com/pipeline
+- type: Team
+  url: https://qnovia.com/team
+- type: News
+  url: https://qnovia.com/news
+- type: Careers
+  url: https://qnovia.com/careers
+- type: Support
+  url: https://qnovia.com/contact
+- type: Investors
+  url: https://qnovia.com/investors
+- type: TermsOfService
+  url: https://qnovia.com/terms
+- type: PrivacyPolicy
+  url: https://qnovia.com/privacy
+- type: SecondaryMarket
   url: https://forgeglobal.com/qnovia_stock/
+- type: DomainSecurity
+  url: security/qnovia-domain-security.yml
+- type: LLMsTxt
+  url: llms/qnovia-llms.txt
+- type: Packages
+  url: packages/qnovia-packages.yml
+- type: Plans
+  url: plans/qnovia-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/qnovia-rate-limits.yml
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 6
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Qnovia is a clinical-stage drug-device company that does write software — BLE device firmware and
+    the cloud-connected Neblit AI companion app — but ships none of it to third parties: the
+    qnovia.com route table extracted from its own JavaScript bundle has no developer, API or docs
+    route, and the only HTTP API on the host is the private /api/ backend behind its contact and
+    investor-portal forms, which answered 401 "Not authenticated".
+  evidence:
+  - url: https://qnovia.com/api/investors/me
+    status: 401
+  - url: https://qnovia.com/openapi.json
+    status: 200
+  - url: https://qnovia.com/.well-known/agent-card.json
+    status: 200
+  - url: https://api.github.com/orgs/qnovia
+    status: 404
+  checked: '2026-08-26'

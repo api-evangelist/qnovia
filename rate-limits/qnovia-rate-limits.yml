@@ -1,0 +1,10 @@
+generated: '2026-08-26'
+method: searched
+source: https://qnovia.com/
+limit_count: 0
+rate_limits: []
+note: >-
+  No published rate limits, because there is no public API. The only HTTP API on qnovia.com is the
+  corporate site's private backend (contact, newsletter, careers applications, investor portal); it is
+  undocumented, has no developer sign-up, and publishes no limits or rate-limit response headers. No
+  unauthenticated request was made against a write endpoint, so no runtime headers were observed.
