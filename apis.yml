@@ -45,7 +45,7 @@ x-type: company
 x-source: harvest:secondary-market
 specificationVersion: '0.20'
 created: '2026-08-26'
-modified: '2026-08-26'
+modified: '2026-10-06'
 tags:
 - Company
 - Pharmaceuticals
@@ -66,6 +66,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://qnovia.com/blog/
+  type: Blog
 - type: Website
   url: https://qnovia.com/
 - type: About
